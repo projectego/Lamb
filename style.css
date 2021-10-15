@@ -1,0 +1,1868 @@
+/*
+Theme Name: Lamb
+Theme URI: https://fellowshipstudios.com/lamb/
+Author: Steve Powell
+Author URI: https://fellowshipstudios.com/
+Description: A theme developed by Steve Powell.
+Tags: 
+Version: 2021.10.14-dev
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lamb
+*/
+
+/* --------------------------------------------------------------
+http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+-------------------------------------------------------------- */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* --------------------------------------------------------------
+Additional CSS Reset by Steve
+-------------------------------------------------------------- */
+
+* {
+	box-sizing: border-box;
+}
+
+article,aside,canvas,details,figcaption,figure,footer,header,main,nav,section,video
+{display:block}
+
+body {
+	line-height: inherit; /* undoes the line-height: 1 set by CSS Reset */
+	overflow-wrap: break-word; /* IMPORTANT: stops long words (like an URL) affecting the width of a page */
+	word-wrap: break-word; /* see overflow-wrap: break-word */
+}
+
+button,
+input,
+select,
+textarea
+{
+	border: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+	text-shadow: inherit;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus
+{
+	outline: none;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+/* --------------------------------------------------------------
+MAIN BEGIN
+-------------------------------------------------------------- */
+
+abbr[title],
+acronym[title],
+dfn[title],
+.rtBibleRef /* .rtBibleRef class is assigned when using the Faithlife Reftagger plugin */
+{
+	border-bottom-width: 2px;
+	border-style: dashed;
+	cursor: help;
+	text-decoration: none !important;
+}
+
+b, strong, .b, .strong { font-weight:bold; }
+
+big, .big { font-size: 1.2em; }
+
+em, i, var, .em, .i
+{ font-style:italic; }
+
+code, kbd, tt { font-family: monospace; }
+
+body {
+	/* default background and color properties are specified in functions.php */
+	font-family: Arial, "Times New Roman", Georgia, Helvetica, Verdana, sans-serif;
+	font-size: 16px;
+	line-height: 1.9;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+hr.wp-block-separator {
+	/*
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+	*/
+	background: rgba( 0, 0, 0, .3 );
+	border: 0;
+	clear: both;
+	display: block;
+	height: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80%;
+	width: 80%;
+}
+
+hr.wp-block-separator.light {
+	/*
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0));
+	*/
+	background: rgba( 255, 255, 255, .3 );
+}
+
+.no-bold { font-weight: normal }
+
+sup, .sup {
+	line-height: 1;
+    vertical-align: super;
+}
+
+/* --------------------------------------------------------------
+Links
+-------------------------------------------------------------- */
+
+a,
+.link
+{
+	/* default link color properties are specified in functions.php */
+	position: relative;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+a:hover,
+.link:hover
+{
+	text-decoration: underline;
+}
+
+.underline-links a {
+	/* Border colour takes on the same colour as text by default */
+	border-bottom-width: 2px;
+	border-style: solid;
+	position: relative;
+	text-decoration: none;
+}
+
+.underline-links a:hover {
+	text-decoration: none;
+}
+
+a.no-underline,
+.no-underline a
+{ text-decoration: none !important; }
+
+/* --------------------------------------------------------------
+Layout
+-------------------------------------------------------------- */
+
+.block-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box-shadow {
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);
+}
+
+.clear, .clearfix, .clear-fix { clear:both; }
+
+.cool-box {
+	border-radius: 8px;
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);
+	overflow: hidden;
+}
+
+.cooler-box {
+	border-radius: 8px;
+	/* style 1
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);
+	*/
+	/* different style
+	box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, .3);
+	*/
+	box-shadow: 0 5px 20px 0 rgb(0 0 0 / 10%);
+	overflow: hidden;
+    padding: calc( 3% + 5px );
+}
+
+.cooler-box.reduced-padding {
+	padding: calc( 2% + 5px );
+}
+
+.cooler-box.clickable:hover {
+	box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%);
+}
+
+.page-width {
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+	z-index: 2;
+}
+
+/* --------------------------------------------------------------
+Flexible columns - Global instructions to have columns appear side by side
+where space is available, but will gracefully stack vertically when
+space is not available
+-------------------------------------------------------------- */
+
+.lamb-block-xx-columns,
+.lamb-block-x1-columns,
+.lamb-block-x2-columns,
+.lamb-block-x3-columns,
+.lamb-block-x4-columns,
+.lamb-block-x5-columns,
+.lamb-block-x6-columns
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	position: relative;
+}
+
+.lamb-block-column {
+	flex: 1 1 300px;
+	min-width: 0;
+	margin: 20px 2%;
+	position: relative;
+}
+
+.lamb-block-condensed-columns .lamb-block-column {
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+.lamb-block-x1-columns .lamb-block-column {
+	flex-basis: 96%;
+}
+
+.lamb-block-x2-columns .lamb-block-column {
+	flex-basis: 46%;
+}
+
+.lamb-block-x3-columns .lamb-block-column {
+	flex-basis: 29.333333332%;
+}
+
+.lamb-block-x4-columns .lamb-block-column {
+	flex-basis: 21%;
+}
+
+.lamb-block-x5-columns .lamb-block-column {
+	flex-basis: 16%;
+}
+
+.lamb-block-x6-columns .lamb-block-column {
+	flex-basis: 12%;
+}
+
+.lamb-blocks-alternating-order .lamb-block-xx-columns:nth-of-type(odd) {
+	flex-direction: row-reverse;
+}
+
+.align-items__center {
+	align-items: center;
+}
+
+.flex-basis__auto { flex-basis: auto !important; }
+
+.flex-grow__0 { flex-grow: 0 !important; }
+.flex-shrink__0 { flex-shrink: 0 !important; }
+
+.flex-nowrap { flex-wrap: nowrap; }
+
+/* --------------------------------------------------------------
+Margins, paragraphs and section spacers
+-------------------------------------------------------------- */
+
+.no-left-margin { margin-left: 0 }
+.no-padding-margin { padding-left: 0 }
+
+html .x-large-margin-bottom			{ margin-bottom: 60px; }
+html .large-margin-bottom			{ margin-bottom: 50px; }
+html .medium-margin-bottom			{ margin-bottom: 40px; }
+html .normal-margin-bottom			{ margin-bottom: 30px; }
+html .small-margin-bottom			{ margin-bottom: 20px; }
+html .x-small-margin-bottom			{ margin-bottom: 10px; }
+html .xx-small-margin-bottom		{ margin-bottom: 5px; }
+html .no-margin-bottom				{ margin-bottom: 0px !important; }
+
+html .x-large-margin-top			{ margin-top: 60px; }
+html .large-margin-top				{ margin-top: 50px; }
+html .medium-margin-top				{ margin-top: 40px; }
+html .normal-margin-top				{ margin-top: 30px; }
+html .small-margin-top				{ margin-top: 20px; }
+html .x-small-margin-top			{ margin-top: 10px; }
+html .xx-small-margin-top			{ margin-top: 5px; }
+html .no-margin-top					{ margin-top: 0px !important; }
+
+.height-100vh		{ align-items: center; display: flex; height: 100vh; }
+.height-90vh		{ align-items: center; display: flex; height: 90vh; }
+.height-80vh		{ align-items: center; display: flex; height: 80vh; }
+.height-70vh		{ align-items: center; display: flex; height: 70vh; }
+.height-60vh		{ align-items: center; display: flex; height: 60vh; }
+.height-50vh		{ align-items: center; display: flex; height: 50vh; }
+
+/* --------------------------------------------------------------
+Default styling for elements not yet set via Theme Customisation
+-------------------------------------------------------------- */
+
+.brand--primary-background-color,
+.brand--primary-background-color-darker,
+.brand--primary-background-color-lighter,
+.brand--secondary-background-colour,
+.brand--secondary-background-colour-darker,
+.brand--secondary-background-colour-lighter,
+::selection
+{
+	color: #fff;
+}
+
+/* --------------------------------------------------------------
+Text styling
+-------------------------------------------------------------- */
+
+.letter-spacing { letter-spacing: 2px; }
+
+.line-height-1 { line-height: 1 }
+
+.lowercase { text-transform: lowercase; }
+.uppercase { text-transform: uppercase; }
+
+.buy-me-a-coffee-text { color: #000; }
+.discord-text { color: #000; }
+.facebook-text { color: #000; }
+.feed-text { color: #000; }
+.instagram-text { color: #000; }
+.ko-fi-text { color: #000; }
+.patreon-text { color: #000; }
+.reddit-text { color: #000; }
+.slack-text { color: #000; }
+.twitch-text { color: #000; }
+.twitter-text { color: #1da1f2; }
+
+.gold-text { color:gold; }
+.green-text { color:#66b319; }
+.orange-text { color: #ff7d13; }
+.pink-text { color: rgb(255, 126, 238) }
+.red-text { color: #cc0000; }
+.white-text,
+.white-text a
+{ color: white; }
+
+.text-shadow { text-shadow: 1px 1px 1px rgba(0, 0, 0, .3); }
+
+.sub-heading {
+	font-weight: bold;
+	letter-spacing: 2px;
+	padding: 5px 10px;
+	text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------
+Inputs and Textareas
+-------------------------------------------------------------- */
+
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='text'],
+input[type='url'],
+select,
+textarea
+{
+	background: white;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 4px;
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .2);
+	color: black;
+	padding: 10px;
+}
+
+/* Styles the up/down arrors present on number inputs */
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button
+{ 
+	height: 30px;
+	position: relative;
+	right: 0;
+	width: 30px;
+}
+
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
+select:focus,
+textarea:focus
+{
+	border: 1px solid rgba( 0, 0, 0, .4 );
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);
+}
+
+/* --------------------------------------------------------------
+Buttons
+-------------------------------------------------------------- */
+
+button,
+input[type="submit"],
+.button
+{
+	background-color: rgb(243, 138, 0);
+	border-color: transparent;
+	border-radius: 18px;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: 1px;
+	overflow: hidden;
+	padding: 10px 30px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .0);
+	vertical-align: top;
+	z-index: 3;
+}
+
+/* This doesn't seem to work for submit buttons? */
+/*
+button::before,
+input[type="submit"]::before,
+.button::before
+{
+	background: linear-gradient(to bottom right, rgba(255, 255, 255, .1), rgba(0, 0, 0, .2));
+	content: '';
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+*/
+
+button:active,
+input[type="submit"]:active,
+.button:active
+{
+	bottom: -1px;
+	box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .4);
+}
+
+button:hover,
+input[type="submit"]:hover,
+.button:hover
+{
+	text-decoration: none;
+}
+
+.button.mini-button {
+	padding: 10px 25px;
+}
+
+.button.button-style-01:hover {
+	border-color: rgba(255, 255, 255, .3);
+}
+
+.button.button-style-02 {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #ca982e 30%, #b38d38 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #fff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    border: 1px solid #ca982e;
+}
+
+.clickable {
+	cursor: pointer;
+	position: relative;
+}
+
+.clickable:active { bottom: -1px; }
+
+/* --------------------------------------------------------------
+Background effects
+-------------------------------------------------------------- */
+
+.fill-area {
+	background-position: 50% 50%;
+	background-size: cover;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.fill-area video {
+	min-height: 100%;
+	min-width: auto;
+	object-fit: cover;
+	object-position: center center;
+	position: relative;
+}
+
+.sheen { background: linear-gradient(155deg, rgba(255, 255, 255, .2), transparent); }
+
+/* This is used in tandem with brand--primary-background-color for certain content-sections */
+.background-00 {
+	opacity: .85;
+}
+
+.background-01 {
+	background: linear-gradient(to bottom right, #2d5185, #cf9a5b);
+}
+
+.background-02 {
+	background: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, .3));
+}
+
+.background-03 {
+	background-image: linear-gradient(89deg,#ff7854e8,#ffaf48);
+}
+
+/* Background for the C-19 section */
+.background-04 {
+	background: linear-gradient(to bottom right, transparent 30%, #ba2020);
+}
+
+.background-05 {
+	background: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, .3));
+}
+
+/* Candy stripes */
+.background-06 {
+	background: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 20px,
+		rgba(0, 0, 0, .1) 20px,
+		rgba(0, 0, 0, .1) 40px
+	) !important;
+}
+
+/* Candy stripes */
+.background-07 {
+	background: repeating-linear-gradient(
+		-45deg,
+		transparent,
+		transparent 20px,
+		rgba(0, 0, 0, .1) 20px,
+		rgba(0, 0, 0, .1) 40px
+	) !important;
+}
+
+/* Used for the portfolio light ray gradients */
+.background-08 {
+	background: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 20px,
+		rgba(0, 0, 0, .06) 20px,
+		rgba(0, 0, 0, .06) 40px
+	) !important;
+}
+
+/* Used for the phone contact option background */
+.background-09 { background-color: #7e9c97; }
+
+.background-10 { background-color: #d1b464 !important; }
+
+.background-11 {
+    background: linear-gradient(to bottom right, #d1b464, #b38d38) !important;
+}
+
+.background-12 {
+	background-color: #e4e7ff;
+}
+
+.android-background { background-color: #3ddc84 !important; }
+.buy-me-a-coffee-background { background-color: #ff813f !important; }
+.discord-background { background-color: #7289DA !important; }
+.facebook-background { background-color: #4267b2 !important; }
+.feed-background { background-color: #d45e1e !important; }
+.gmail-background { background-color: #ea4335 !important; }
+.instagram-background { background-color: #f05e2d; background-image: linear-gradient(to bottom right, #6f2ab8, #ef5b2d) !important; }
+.ko-fi-background { background-color: #29abe0 !important; }
+.linkedin-background { background-color: #0a66c2 !important; }
+.patreon-background { background-color: #e85b46 !important; }
+.paypal-background { background-color: #005ea6 !important; }
+.reddit-background { background-color: #ff3f18 !important; }
+.skype-background { background-color: #01aef3 !important; }
+.slack-background { background-color: #4A154B !important; }
+.steam-background { background-color: #171a21 !important; }
+.twitch-background { background-color: #9147ff !important; }
+.twitter-background { background-color: #1da1f2 !important; }
+.whatsapp-background { background-color: #1ebea5 !important; }
+.zoom-background { background-color: #2d8cff !important; }
+
+.mini-notice {
+	border-radius: 4px;
+	padding: 5px 10px;
+}
+
+/* --------------------------------------------------------------
+Opacity
+-------------------------------------------------------------- */
+
+.opacity__95 { opacity: .95; }
+.opacity__90 { opacity: .90; }
+.opacity__85 { opacity: .85; }
+.opacity__80 { opacity: .80; }
+.opacity__70 { opacity: .70; }
+.opacity__60 { opacity: .60; }
+.opacity__50 { opacity: .50; }
+.opacity__40 { opacity: .40; }
+.opacity__30 { opacity: .30; }
+.opacity__20 { opacity: .20; }
+.opacity__15 { opacity: .15; }
+.opacity__10 { opacity: .10; }
+.opacity__05 { opacity: .05; }
+
+/* --------------------------------------------------------------
+SVG Waves
+-------------------------------------------------------------- */
+
+.svg-waves {
+	bottom: 0px;
+	left: 0;
+	max-height: 500px;
+	overflow: visible;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+
+.svg-waves svg
+{
+	display: block;
+	position: relative;
+}
+
+.svg-waves.flip-vertical {
+	bottom: auto;
+	top: 0;
+	transform: rotate(180deg) scaleX(-1);
+}
+
+/* --------------------------------------------------------------
+Avatar styling
+-------------------------------------------------------------- */
+
+.avatar-container {
+	border: 0px solid rgba(0, 0, 0, .5);
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: inline-block;
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 60px;
+}
+
+.avatar-container .avatar {
+	height: inherit;
+	image-rendering: pixelated;
+	position: relative;
+	width: auto;
+}
+
+/* --------------------------------------------------------------
+Site Logo
+-------------------------------------------------------------- */
+
+.site-logo {
+	display: inline-flex;
+	height: 100%;
+}
+
+.site-logo img {
+	display: inline-block;
+	height: inherit;
+	image-rendering: auto;
+	max-height: inherit;
+}
+
+/* --------------------------------------------------------------
+Animations and Page Scroll Visibility Effects
+-------------------------------------------------------------- */
+
+.animation--target {
+	position: relative;
+}
+
+.animation--target.in-view {
+	opacity: 1;
+	transition: all 0.5s ease;
+}
+
+.animation--rotate-in .animation--target { opacity: .0; transform: rotate(-10deg); }
+.animation--rotate-in .animation--target.in-view { opacity: 1; transform: rotate(0deg); }
+
+.animation--slide-in-from-bottom .animation--target { bottom: -50px; opacity: .0; }
+.animation--slide-in-from-bottom .animation--target.in-view { bottom: 0px; opacity: 1; }
+
+.animation--slide-in-from-left .animation--target { left: -50px; opacity: .0; }
+.animation--slide-in-from-left .animation--target.in-view { left: 0; opacity: 1; }
+
+/* May cause layout issues when elements zip in from the right? May need to investigate */
+.animation--slide-in-from-left-and-right .animation--target{ left: -50px; opacity: .0; }
+.animation--slide-in-from-left-and-right .animation--target:nth-of-type(2n) { left: 50px; }
+.animation--slide-in-from-left-and-right .animation--target.in-view { left: 0; opacity: .0;  }
+.animation--slide-in-from-left-and-right .animation--target:nth-of-type(2n).in-view { left: 0; opacity: 1;opacity: 1; }
+
+.animation--slide-in-from-right .animation--target { opacity: .0; right: -50px; }
+.animation--slide-in-from-right .animation--target.in-view { opacity: 1; right: 0; }
+
+.animation--slide-in-from-top .animation--target { opacity: .0; top: -50px; }
+.animation--slide-in-from-top .animation--target.in-view { opacity: 1; top: 0; }
+
+/* --------------------------------------------------------------
+Header
+-------------------------------------------------------------- */
+
+#page-head {
+	/* Specify the default colour which can be restyled
+	via Theme Customisation */
+	border-bottom: 0px solid rgba( 255, 255, 255, .2 );
+	box-shadow: 0 6px 6px -6px rgba( 0, 0, 0, .2 );
+	position: relative;
+	top: 0;
+	transition: all 0.3s ease; /* this eases the background colour change transition during page scroll */
+	width: 100%;
+	z-index: 999;
+}
+
+/* If the admin bar is present, we need to include additional spacing
+for the page-head. Admin bar height on desktops is 32px
+*/
+body.admin-bar #page-head {
+	top: 0;
+}
+
+#page-head .site-logo {
+	justify-content: center;
+}
+
+/* The image height is now handled via functions.php */
+#page-head .site-logo img {
+}
+
+/* --------------------------------------------------------------
+Navigation Bar
+-------------------------------------------------------------- */
+
+#header-bar {
+	font-weight: normal;
+	list-style-type: none;
+	padding: 10px 0;
+	position: relative;
+	width: 100%;
+	z-index: 3;
+}
+
+#header-bar a:hover {
+	text-decoration: none;
+}
+
+#header-bar__items {
+	align-items: center;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+.main-menu__left-items {
+	display: flex;
+	flex: 0 0 auto;
+	left: 0;
+	position: absolute;
+}
+
+.main-menu__left-items .menu-item {
+	margin-right: 20px;
+}
+
+.main-menu__right-items {
+	display: flex;
+	flex: 0 0 auto;
+	position: absolute;
+	right: 0;
+}
+
+.main-menu__right-items .menu-item {
+	margin-left: 20px;
+}
+
+#search-button {
+	cursor: pointer;
+}
+
+#main-menu li a:hover,
+.search-button:hover,
+#account-menu li a:hover
+{
+	border-bottom: 2px solid white;
+	text-decoration: none;
+}
+
+/* Search */
+
+.search-form {
+	align-items: center;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.search-form label span {
+	display: block;
+}
+
+.search-form input[type="search"] {
+	flex: 1 1 auto;
+	margin: 0;
+	padding: 5px 10px;
+	text-align: left;
+	width: 100%;
+}
+
+.search-form input[type="submit"] {
+	margin-left: 10px;
+}
+
+.search-form input::placeholder {
+	color: white;
+	opacity: .7;
+}
+
+/* Hamburger / Menu pop-up and account pop-up */
+
+#hamburger-button {
+	cursor: pointer;
+}
+
+.hamburger-button--deactivate,
+.search-button--deactivate
+{
+	display: none;
+}
+
+#main-menu,
+#search-menu
+{
+	background: rgba(0, 0, 0, .15);
+	border-top: 0px solid rgba(255, 255, 255, .1);
+	display: none;
+	padding: 10px 0;
+}
+
+#main-menu li a,
+#account-menu li a
+{
+	border-bottom: 2px solid transparent;
+	display: inline-block;
+	padding: 2px 0;
+}
+
+#main-menu li ul,
+#account-menu li ul
+{
+	background: transparent;
+	border-left: 2px solid rgba(255, 255, 255, .1);
+	display: block;
+	padding-left: 15px;
+	position: relative;
+}
+
+#main-menu li ul li,
+#account-menu li ul li
+{
+	border-bottom: none !important;
+	display: list-item;
+	position: relative;
+}
+
+
+/* Sub-sub menu - TODO */
+
+/* --------------------------------------------------------------
+Universal Post List Items
+-------------------------------------------------------------- */
+
+.post__info {
+	order: 55;
+	width: 100%;
+	z-index: 3;
+}
+
+.post__title {
+	display: block;
+}
+
+/* --------------------------------------------------------------
+Index / Posts List (List)
+-------------------------------------------------------------- */
+
+.posts__classic-layout {
+	display: block;
+}
+
+.posts__classic-layout .post {
+	overflow: hidden;
+}
+
+.posts__classic-layout .post__thumbnail {
+    border-radius: 5px;
+	box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .1);
+	flex: 0 1 300px;
+	height: 224px;
+}
+
+.posts__classic-layout .post__info {
+}
+
+.posts__classic-layout .comments-link-button {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.post__labels {
+	display: inline-block;
+	z-index: 2;
+}
+
+.post__labels li {
+	color: white;
+	display: inline-block;
+}
+
+.post__labels li .fa-icon {
+	margin-right: 5px;
+}
+
+.post__labels li .label {
+	color: white;
+	display: inline-block;
+}
+
+.posts__classic-layout .review-score-container {
+	border-radius: 0;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
+
+/* --------------------------------------------------------------
+Fancy/Modern Content
+-------------------------------------------------------------- */
+
+.posts__modern-layout {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.posts__modern-layout .post {
+	height: 440px;
+	overflow: hidden;
+	position: relative;
+}
+
+.posts__modern-layout .post__thumbnail {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.posts__modern-layout .post__thumbnail img {
+	object-fit: cover;
+	object-position: 100% 0%;
+	position: relative;
+}
+
+.posts__modern-layout .post__info {
+	align-items: center;
+	background: rgba(0, 0, 0, .0);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 100%;
+	justify-content: center;
+	padding: 0 20px;
+	position: relative;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+	transition: all 0.3s ease;
+	width: 100%;
+}
+
+.posts__modern-layout .review-score-container {
+	margin-top: 20px;
+}
+
+/* --------------------------------------------------------------
+Breadcrumbs
+-------------------------------------------------------------- */
+
+#article__header {
+}
+
+#article__header h1 {
+	display: block;
+}
+
+#article__header .page__teaser {
+	display: block;
+	font-style: italic;
+}
+
+.article__meta li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.article__meta li:not(:first-of-type)::before {
+	content: ' \25AA';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.article__meta .avatar-container {
+	height: 40px;
+	margin-right: 10px;
+	width: auto;
+}
+
+/* --------------------------------------------------------------
+Post styling / Gutenberg styling
+-------------------------------------------------------------- */
+
+.has-mythic-font-size		{ font-size: 60px; line-height: 1.3; } /* Not a standard WordPress size */
+.has-epic-font-size			{ font-size: 60px; line-height: 1.3; } /* Not a standard WordPress size */
+.has-giant-font-size		{ font-size: 50px; line-height: 1.3; } /* Not a standard WordPress size */
+.has-huge-font-size			{ font-size: 42px; line-height: 1.3; }
+.has-larger-font-size		{ font-size: 38px; line-height: 1.4; } /* Not a standard WordPress size */
+.has-large-font-size		{ font-size: 36px; line-height: 1.3; }
+.the-content h1,
+.the-content h2,
+.has-bigger-font-size		{ font-size: 30px; line-height: 1.4; } /* Not a standard WordPress size */
+.the-content h3,
+.has-big-font-size			{ font-size: 24px; line-height: 1.4; } /* Not a standard WordPress size */
+.the-content h4,
+.the-content h5,
+.the-content h6,
+.has-medium-font-size		{ font-size: 20px; line-height: 1.5; }
+.has-enlarged-font-size		{ font-size: 18px; }  /* Not a standard WordPress size */
+.has-normal-font-size		{ font-size: 16px; }
+.has-reduced-font-size		{ font-size: 15px; } /* Not a standard WordPress size */
+.has-small-font-size		{ font-size: 14px; }
+.has-smaller-font-size		{ font-size: 13px; } /* Not a standard WordPress size */
+
+/*
+Gutenberg uses alignleft and alignright classes to use certain blocks, such as pullquotes
+The execution by Gutenberg is very odd... the view on the edit screen does not use these classes at all..
+The default block-library.css style also removes the eft and right margins... hmm
+- We use !important to overrule Automattic's default margin styling
+*/
+.alignleft {
+	float: left;
+	margin-right: 2em !important;
+}
+.alignright {
+	float: right;
+	margin-left: 2em !important;
+}
+
+.alignfull {
+    margin-left: calc(50% - 50vw) !important;
+    width: 100vw !important;
+}
+
+.has-text-align-center { text-align: center; }
+.has-text-align-left { text-align: left; }
+.has-text-align-right { text-align: right; }
+
+.wp-block-code {
+	background: rgba( 0, 0, 0, .05);
+}
+
+.wp-block-table {
+	width: 100%;
+}
+
+/*
+Things get fiddly when posts use the Gutenberg WYSIWYG editor and WooCommerce/other plugins use
+a different editor, so we use the '>' to target lists that are not nested
+with specific blocks
+
+We use :not(.content-section) as we do not want to apply the margins to any blocks added via widgets
+*/
+.the-content:not(.content-section) > h1,
+.the-content:not(.content-section) > h2,
+.the-content:not(.content-section) > h3,
+.the-content:not(.content-section) > h4,
+.the-content:not(.content-section) > h5,
+.the-content:not(.content-section) > h6,
+.the-content:not(.content-section) > ol,
+.the-content:not(.content-section) > p,
+.the-content:not(.content-section) > ul,
+.the-content:not(.content-section) .wp-block-button,
+.the-content:not(.content-section) .wp-block-categories,
+.the-content:not(.content-section) .wp-block-code,
+.the-content:not(.content-section) .wp-block-columns,
+.the-content:not(.content-section) .wp-block-cover,
+.the-content:not(.content-section) .wp-block-embed,
+.the-content:not(.content-section) .wp-block-file,
+.the-content:not(.content-section) .wp-block-gallery,
+.the-content:not(.content-section) > .wp-block-image,
+.the-content:not(.content-section) .wp-block-pullquote,
+.the-content:not(.content-section) .wp-block-quote,
+.the-content:not(.content-section) .wp-block-separator,
+.the-content:not(.content-section) .wp-block-table,
+.the-content:not(.content-section) .wp-block-verse
+{
+	margin-bottom: 40px !important;
+}
+
+.the-content h1,
+.the-content h2,
+.the-content h3,
+.the-content h4,
+.the-content h5,
+.the-content h6,
+.the-content p
+{
+	margin-bottom: 20px;
+}
+
+/* The additional Gutenberg styling does not centre images by default,
+so we'll add it ourselves
+- Actually, let's leave this disabled as we can still align centre within the WYSIWYG editor
+*/
+/*
+.the-content .wp-block-image img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+*/
+
+.the-content > ol { 
+	list-style-position: outside;
+	list-style-type: decimal; 
+	margin-left: 2em;
+}
+
+.the-content > ul { 
+	list-style-position: outside;
+	list-style-type: disc; 
+	margin-left: 2em;
+}
+
+.the-content > ol ul,
+.the-content > ul ul
+{ 
+	list-style-position: outside;
+	list-style-type: circle; 
+	margin-left: 2em;
+}
+
+.the-content > ol ol,
+.the-content > ul ol
+{ 
+	list-style-position: outside;
+	list-style-type: lower-latin; 
+	margin-left: 2em;
+}
+
+/* --------------------------------------------------------------
+WooCommerce page styling
+-------------------------------------------------------------- */
+
+/*
+Causes the input number and add to basket buttons (present on individual product pages
+to share the same height */
+.woocommerce div.product form.cart {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.woocommerce-product-details__short-description p, /* targets the tab contents on individual product pages */
+.woocommerce-Tabs-panel p /* targets the tab contents on individual product pages */
+{
+	margin-bottom: 40px;
+}
+
+
+/* --------------------------------------------------------------
+Post Tags
+-------------------------------------------------------------- */
+
+.post__tags a::before {
+	content: "#";
+	display: inline-block;
+}
+
+/* --------------------------------------------------------------
+Author Card
+-------------------------------------------------------------- */
+
+.post__author-info .avatar-container {
+	height: 58px;
+	margin: 0 6px 0 0;
+	width: 58px;
+}
+
+.post__author-info .page-author-title {
+	display: block;
+}
+
+.post__author-info .page-author-social-networking {
+	margin-bottom: 0 !important;
+	margin-left: 0 !important;
+}
+
+.post__author-info .page-author-social-networking li a {
+	color: white;
+	margin-bottom: 0;
+	padding: 3px 10px;
+}
+
+/* --------------------------------------------------------------
+Comments
+-------------------------------------------------------------- */
+
+#comments .comment-list {
+	position: relative;
+}
+
+#comments li.comment {
+	margin-left: 0;
+	padding: 20px 0 20px 0;
+}
+
+#comments li.comment.depth-1 {
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+#comments li.comment.depth-1:last-of-type {
+	border-bottom: 0;
+}
+
+#comments article {
+	border-bottom: 0px solid rgba(0, 0, 0, .2);
+	position:relative;
+}
+
+#comments article#div-comment-1 {
+	padding-top: 0;
+}
+
+#comments img.avatar {
+	box-shadow:0 2px 2px rgba(0, 0, 0, .2);
+	border-radius: 50%;
+	height: 46px;
+	left: 0;
+	margin-right: 10px;
+	position: absolute;
+	width: auto;
+}
+
+#comments b.fn {
+	white-space: normal;
+}
+
+#comments li .comment-meta {
+	margin: 0 0 15px 56px;
+}
+
+#comments li .comment-metadata {
+	font-size: .9em;
+}
+
+#comments li .comment-content p:last-of-type {
+	margin-bottom: 0;
+}
+
+#comments li .children {
+	list-style-type: none;
+	margin-bottom: 0 !important;
+	margin-top: 20px;
+}
+
+#comments li .children li {
+	border-bottom: 0;
+	border-left: 4px solid rgba(0, 0, 0, .2);
+	margin: 10px 0;
+	padding-left: 15px;
+}
+
+#comments .reply{
+	margin: 10px 0 0;
+}
+
+#comments .comment-reply-link {
+	background: green;
+	color: #fff;
+	font-size: .9em;
+	padding: 5px 10px;
+}
+
+#comments .bypostauthor > article b.fn::after {
+    background: rgba(0, 0, 0, .5);
+	color: #fff;
+	content:" Author";
+	display: inline-block;
+	font-size: .8em;
+	font-weight: normal;
+	margin: 0 0 0 7px;
+	padding: 2px 10px;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.comment-edit-link::before {
+	content: "[";
+	display: inline-block;
+}
+.comment-edit-link::after {
+	content: "]";
+	display: inline-block;
+}
+
+/* --------------------------------------------------------------
+Comments - Respond Form
+-------------------------------------------------------------- */
+
+#respond {
+	padding: 20px 0;
+}
+
+#respond #cancel-comment-reply-link {
+	background: rgb(218, 0, 0);
+	color :white !important;
+	font-size: 14px;
+	margin-left: 10px;
+	padding: 5px 10px;
+	text-transform: uppercase;
+}
+
+#respond p {
+	display:block;
+	margin:0;
+}
+
+#respond form label {
+	display:block;
+	margin:10px 0 0;
+}
+
+#respond .form-submit {
+	margin:10px 0 0;
+}
+
+#respond form .required {
+	color:#ff0000;
+}
+
+#respond form input[type="text"],
+#respond form input[type="email"],
+#respond form input[type="url"],
+#respond form textarea
+{
+	max-width: 95%;
+}
+
+#respond .comment-form-cookies-consent label {
+	display: inline-block;
+}
+
+/* --------------------------------------------------------------
+Pagination
+-------------------------------------------------------------- */
+
+.lamb-pagination {
+	border-radius: 4px;
+	display: inline-flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	position: relative;
+}
+
+.lamb-pagination a,
+.lamb-pagination span
+{
+	border-right: 1px solid rgba(0, 0, 0, .1);
+	display: inline-block;
+	padding: 10px 15px;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.lamb-pagination a:hover {
+	background: rgb(214, 255, 235);
+}
+
+.lamb-pagination a:last-of-type
+{
+	border-right: 0;
+}
+
+.lamb-pagination span.current {
+	background: rgba( 0, 0, 0, .1 );
+}
+
+/* --------------------------------------------------------------
+Social Buttons
+-------------------------------------------------------------- */
+
+.social-buttons {
+	list-style-type: none;
+}
+
+.social-buttons li {
+	display: inline-block;
+}
+
+.social-buttons li .social-link {
+	color: white;
+	display: inline-block;
+	margin: 0 5px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.social-buttons li .social-link.button {
+	border-color: transparent !important;
+	border-width: 0 !important;
+}
+
+.social-buttons.circles li .social-link {
+	border-radius: 50%;
+	height: 44px;
+	line-height: 44px;
+	padding: 0;
+	text-align: center;
+	width: 44px;
+}
+
+.social-buttons.rounded-edges li .social-link {
+	border-radius: 6px;
+	height: 44px;
+	line-height: 44px;
+	width: 44px;
+}
+
+.social-buttons li a {
+	color: white !important;
+}
+
+.social-buttons li .social-link span {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.share-buttons {
+	align-items: center;
+	display: flex;
+}
+
+.share-buttons .title {
+	margin-right: 10px;
+}
+
+/* --------------------------------------------------------------
+Footer
+-------------------------------------------------------------- */
+
+/* Specify the default colour which can be restyled
+via Theme Customisation */
+#page-footer {
+}
+
+#page-footer .site-logo img {
+	height: 40px;
+}
+
+#page-footer .bullet-list ul {
+	display: inline-block;
+	list-style-type: none;
+}
+
+#page-footer .bullet-list ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+#page-footer .bullet-list li:after {
+    content: " \2022";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#page-footer .bullet-list li:last-of-type:after {
+    content: '';
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* --------------------------------------------------------------
+Toggle show/hide content
+Usage:
+<div class="toggle-wrapper">
+    <div class="toggle-button">
+        <div class="show-button">Show</div>
+        <div class="hide-button">Hide</div>
+    </div>
+    <div class="toggle-content">
+        Lorem ipsum...
+    </div>
+</div>
+-------------------------------------------------------------- */
+
+.toggle-button .show-button { display: block; }
+.toggle-button .hide-button { display: none; }
+
+.toggle-wrapper .toggle-content { display: none; }
+.toggle-wrapper .toggle-content.show { display: block; }
+
+/* --------------------------------------------------------------
+CSS REVIEW SCORE
+-------------------------------------------------------------- */
+
+.review-score-container {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	z-index: 3;
+}
+
+.review-score {
+	align-items: center;
+	border-color:rgba(0, 0, 0, .25);
+	border-style: solid;
+	box-sizing: content-box;
+	color: white !important;
+	display: flex;
+	font-weight: bold;
+	line-height: 1;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+	z-index: 2;
+}
+
+.review-score-style-full .review-score {
+	font-size: 2em;
+	padding: 15px 20px;
+	text-align: right;
+}
+
+.review-score-style-large .review-score {
+	font-size: 2.8em;
+	padding: 15px;
+}
+
+.review-score-style-medium .review-score {
+	font-size: 2em;
+	padding: 10px;
+}
+
+.review-score-style-mini .review-score {
+	padding: 10px;
+}
+
+.review-score__summary {
+	flex: 1 1 300px;
+	padding: 20px 20px;
+	text-align: left;
+}
+
+/* --------------------------------------------------------------
+Content Sections
+-------------------------------------------------------------- */
+
+.masthead.content-section {
+    align-items: center;
+	min-height: 50vh;
+	padding-top: calc( 6vh + 46px );
+}
+
+.content-section {
+	background-position: 50% 50%;
+	background-size: cover;
+	border-bottom: 0px solid rgba( 0, 0, 0, .1 );
+	/*
+	box-shadow: 0 10px 10px -5px rgba(0, 0, 0, .05); 
+	*/
+	box-sizing: border-box;
+	overflow: hidden;
+	padding-bottom: 6vh;
+	padding-top: 6vh;
+	position: relative;
+}
+
+/*
+When assinging a position: absolute to the page-head, we need to allow additional padding
+to accomodate the space that the page-head occupies as well as the admin bar.
+The admin bar is 32px tall at higher resolutions and 46px tall at lower resolutions
+- Seems to target all nth-of-types instead of only the first, so we're disabling it and
+appending it specifically to the masthead class. There should be enough default padding
+for pages without mastheads to accomodate the page-head.. maybe review in the future
+-- It would seem that nth-of-type also factors in tag type. Having a <figure> then a <section>
+with .content-section attached will have them behave as different types. Having two
+<sections>s back to back seems to behave just fine
+*/
+/*
+html .content-section:nth-of-type(1) {
+	padding-top: calc( 6vh + 46px );
+}
+*/
+
+/* See above for reasons for utilising JS to apply a class to the
+first content-section */
+/*
+.content-section.first-content-section {
+	padding-top: calc( 6vh + 46px );
+}
+*/
+
+/* Generates a faux border/division line after each section */
+.content-sectio111n::after {
+	background: rgba(0, 0, 0, .2);
+	border-bottom: 0px solid rgba(255, 255, 255, .2);
+	bottom: 0px;
+	content: "";
+	height: 1px;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, 0);
+	width: 80%;
+	z-index: 10;
+}
+
+/* Remember that 'odd' starts at '0'! */
+.content-section:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, .025);
+	box-shadow:
+		inset 0 15px 15px -5px rgba(0, 0, 0, .05),
+		inset 0 -15px 15px -5px rgba(0, 0, 0, .05);
+}
+
+.content-section .wp-block-cover.alignfull {
+	margin-bottom: -6vh;
+	margin-top: -6vh;
+}
+
+/* --------------------------------------------------------------
+Featured Images for posts, pages, etc.
+-------------------------------------------------------------- */
+
+.post__thumbnail {
+	color: white;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
+.post__thumbnail img {
+	display: block;
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	object-position: 100% 50%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* --------------------------------------------------------------
+Check list, checklist
+-------------------------------------------------------------- */
+
+.check-list {
+	position: relative;
+}
+
+.check-list li {
+	border-bottom: 1px dashed rgba(0, 0, 0, .1);
+	display: block;
+	padding: 5px 0 5px 28px;
+	position: relative;
+}
+
+.check-list li:last-of-type {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.check-list li .check-mark {
+	left: 0;
+	position: absolute;
+}
+
+/* --------------------------------------------------------------
+Contact form // WPForms
+-------------------------------------------------------------- */
+
+.wpforms-container input[type=email],
+.wpforms-container input[type=password],
+.wpforms-container input[type=tel],
+.wpforms-container input[type=text],
+.wpforms-container input[type=url],
+.wpforms-container select,
+.wpforms-container textarea
+{
+	background: #eee;
+	border: 1px solid rgba(0, 0, 0, .6);
+	border-radius: 5px;
+	box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .2);
+	box-sizing: border-box;
+	color: #222;
+	display: block;
+	font-size: .85em;
+	margin: 0;
+	padding: 10px;
+	text-shadow: 1px 1px 1px white;
+	width: 100%;
+}
+
+.wpforms-container textarea {
+	height: 150px;
+	transition: height 0.5s;
+}
+
+.wpforms-container input[type=email]:focus,
+.wpforms-container input[type=password]:focus,
+.wpforms-container input[type=tel]:focus,
+.wpforms-container input[type=text]:focus,
+.wpforms-container input[type=url]:focus,
+.wpforms-container select:focus,
+.wpforms-container textarea:focus
+{
+	border: 1px solid rgba(0, 0, 0, .3);
+}
+
+div.wpforms-container-full111 {
+	background: rgba(0, 0, 0, .2);
+	border-radius: 5px;
+	padding: 10px 20px 30px;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field {
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+}
+
+/* Disables the bold stlying of labels */
+div.wpforms-container-full .wpforms-form .wpforms-field-label {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+/* --------------------------------------------------------------
+Responsiveness // 4k, monitor, phablet, phone, tablet
+-------------------------------------------------------------- */
+
+/* For desktop monitor resolutions and higher */
+@media screen and (min-width: 1239px) {
+
+	.page-width { width: 1060px; }
+
+}
+
+/* For large tablet resolutions (such as the 2020 iPad Pro) */
+@media screen and (max-width: 1100px) {
+
+}
+
+/* For tablet resolutions */
+@media screen and (max-width: 800px) {
+
+	.hide-if--tablet { display: none }
+
+}
+
+/* For resolutions that trigger the taller admin bar which has a height of 46px */
+/* If the admin bar is present, we need to include additional spacing
+for the page-head
+*/
+@media screen and (max-width: 782px) {
+
+	/* Because the admin bar is assigned a position: absolute and does NOT scroll down
+	at this resolution, we have to give the page-head the same behaviour or there
+	will always be a gap between the top of the page and the page-head when
+	scrolling down the page.
+	*/
+	#page-head {
+		position: absolute;
+	}
+
+	/* Sept 2021 - the MOBILE version of the admin bar is 46px tall */
+	body.admin-bar #page-head {
+		top: 46px;
+	}
+
+	.lamb-block-column {
+		flex-basis: 300px !important;
+	}
+
+}
+
+/* For phablet resolutions */
+@media screen and (max-width: 600px) {
+
+	.responsive-reverse-order .lamb-block-column:nth-of-type(0) { order: 2; }
+	.responsive-reverse-order .lamb-block-column:nth-of-type(1) { order: 1; }
+
+	.hide-if--phablet { display: none }
+
+}
+
+/* For phone resolutions and below */
+@media screen and (max-width: 400px) {
+
+	/*
+	Without this, the #respond textarea will causes odd overflow issues within the entire layout
+	Only seems to affect lower resolution displays like phones... wasn't really able to get to the bottom of this
+	But seems to do the trick
+	*/
+	textarea {
+		max-width: 300px !important;
+	}
+
+	.hide-if--phone { display: none }
+
+}
